@@ -1,0 +1,10 @@
+<h1>Reactive Forms</h1>
+
+<nav>
+  <button type="button" (click)="toggleEditor('rh')">Name Editor</button>
+  <button type="button" (click)="toggleEditor('quality')">Profile Editor</button>
+</nav>
+
+
+<app-form-quality *ngIf="showQuality">aaaa</app-form-quality>
+<app-form-rh *ngIf="showRh"></app-form-rh>
