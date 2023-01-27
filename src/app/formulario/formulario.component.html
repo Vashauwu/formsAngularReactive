@@ -1,10 +1,37 @@
 <h1>Reactive Forms</h1>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <label for="first-name">First Name: </label>
+  <input id="first-name" type="text" formControlName="firstName" required>
+
+  <label for="last-name">Last Name: </label>
+  <input id="last-name" type="text" formControlName="lastName">
+
+  <label for="last-name">Lugar de detección: </label>
+  <input id="last-name" type="text" formControlName="lastName">
+
+  <label for="last-name">¿Qué pasó?: </label>
+  <input id="last-name" type="text" formControlName="lastName">
+  <label for="last-name">¿Cómo pasó?: </label>
+  <input id="last-name" type="text" formControlName="lastName">
+  <label for="last-name">¿Cuándo pasó pasó?: </label>
+  <input id="last-name" type="date" formControlName="lastName">
+  <label for="last-name"> ¿Quién lo hizo?: </label>
+  <input id="last-name" type="text" formControlName="lastName">
+  <label for="last-name"> ¿Dónde?: </label>
+  <!--<button type="radiobutton" (click)="toggleEditor('quality')">Profile Editor</button>-->
+  <!--<button type="button" (click)="toggleEditor('rh')">Name Editor</button>-->
+  <input type="radio" id="age1" name="age" value="30" (click)="toggleEditor('quality')">
+  <label for="age1">Calidad</label>
+  <input type="radio" id="age1" name="age" value="30" (click)="toggleEditor('rh')">
+  <label for="age1">RH</label>
+</form>
 
 <nav>
-  <button type="button" (click)="toggleEditor('rh')">Name Editor</button>
-  <button type="button" (click)="toggleEditor('quality')">Profile Editor</button>
+  
 </nav>
 
-
-<app-form-quality *ngIf="showQuality">aaaa</app-form-quality>
+<app-form-quality *ngIf="showQuality"></app-form-quality>
 <app-form-rh *ngIf="showRh"></app-form-rh>
+
+<p>Complete the form to enable button.</p>
+<button type="submit" [disabled]="!profileForm.valid">Submit</button>
