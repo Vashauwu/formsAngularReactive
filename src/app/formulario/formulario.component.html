@@ -1,37 +1,77 @@
-<h1>Reactive Forms</h1>
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-  <label for="first-name">First Name: </label>
-  <input id="first-name" type="text" formControlName="firstName" required>
+<div class="main-div">
 
-  <label for="last-name">Last Name: </label>
-  <input id="last-name" type="text" formControlName="lastName">
 
-  <label for="last-name">Lugar de detección: </label>
-  <input id="last-name" type="text" formControlName="lastName">
+  <form class="form-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Formularios contactos</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field class="full-width">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="Full Name" formControlName="fullname" required>
+            </mat-form-field>
+          </div>
+          <div class="col-md-8">
+            <mat-form-field class="full-width">
+              <mat-label>Last Name</mat-label>
+              <input matInput placeholder="Full Name" formControlName="fullname" required>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6"></div>
+          <mat-form-field class="full-width">
+            <mat-label>Lugar de detección: </mat-label>
+            <input matInput placeholder="Full Name" formControlName="fullname" required>
+          </mat-form-field>
+          <div class="col-md-8">
+            <mat-form-field class="full-width">
+              <mat-label>¿Qué pasó?</mat-label>
+              <input matInput placeholder="Full Name" formControlName="fullname" required>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
 
-  <label for="last-name">¿Qué pasó?: </label>
-  <input id="last-name" type="text" formControlName="lastName">
-  <label for="last-name">¿Cómo pasó?: </label>
-  <input id="last-name" type="text" formControlName="lastName">
-  <label for="last-name">¿Cuándo pasó pasó?: </label>
-  <input id="last-name" type="date" formControlName="lastName">
-  <label for="last-name"> ¿Quién lo hizo?: </label>
-  <input id="last-name" type="text" formControlName="lastName">
-  <label for="last-name"> ¿Dónde?: </label>
-  <!--<button type="radiobutton" (click)="toggleEditor('quality')">Profile Editor</button>-->
-  <!--<button type="button" (click)="toggleEditor('rh')">Name Editor</button>-->
-  <input type="radio" id="age1" name="age" value="30" (click)="toggleEditor('quality')">
-  <label for="age1">Calidad</label>
-  <input type="radio" id="age1" name="age" value="30" (click)="toggleEditor('rh')">
-  <label for="age1">RH</label>
-</form>
+          <div class="col-md-6">
+            <mat-form-field class="full-width">
+              <mat-label>¿Cómo pasó?</mat-label>
+              <input matInput placeholder="Full Name" formControlName="fullname" required>
+            </mat-form-field>
+          </div>
+          <div class="col-md-8">
+            <mat-form-field class="full-width">
+              <mat-label>¿Cuándo pasó?</mat-label>
+              <input type="date" matInput placeholder="Full Name" formControlName="fullname" required>
+            </mat-form-field>
+            <div class="col-md-6">
+              <mat-form-field class="full-width">
+                <mat-label>¿Quién lo hizo?</mat-label>
+                <input matInput placeholder="Full Name" formControlName="fullname" required>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
 
-<nav>
-  
-</nav>
-
-<app-form-quality *ngIf="showQuality"></app-form-quality>
-<app-form-rh *ngIf="showRh"></app-form-rh>
-
-<p>Complete the form to enable button.</p>
-<button type="submit" [disabled]="!profileForm.valid">Submit</button>
+        <div class="row">
+          <div class="col-md-12">
+            <mat-label>¿Dónde?:</mat-label>
+            <mat-radio-group aria-label="Select an option" class="margin-left">
+              <mat-radio-button (click)="toggleEditor('quality')">Calidad</mat-radio-button>
+              <mat-radio-button (click)="toggleEditor('rh')">RH </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <app-form-quality *ngIf="showQuality"></app-form-quality>
+        <app-form-rh *ngIf="showRh"></app-form-rh>
+        <br>
+      </mat-card-content>
+    </mat-card>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" >Primary</button>
+    </mat-card-actions>
+  </form>
+</div>

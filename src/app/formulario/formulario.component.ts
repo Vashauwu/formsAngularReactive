@@ -10,18 +10,22 @@ import { CommonModule } from '@angular/common';
 import { Validators } from '@angular/forms';
 import { FormArray } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatCardModule} from '@angular/material/card';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
-export type FormType = 'rh' | 'quality';
+
+export type FormType = 'rh' | 'quality' | '';
 @Component({
   standalone: true,
   selector: 'app-formulario',
-  imports: [CommonModule, MatButtonModule, MatFormFieldModule, MatSelectModule, MatInputModule, ReactiveFormsModule, FormQualityComponent, FormRhComponent],
+  imports: [CommonModule, MatButtonModule, MatFormFieldModule, MatSelectModule, MatInputModule, ReactiveFormsModule, FormQualityComponent, FormRhComponent,MatRadioModule,MatCardModule,MatDatepickerModule],
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent {
 
-  form: FormType = 'rh';
+  form: FormType = '';
 
   get aliases() {
     return this.profileForm.get('aliases') as FormArray;
